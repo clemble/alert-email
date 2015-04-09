@@ -7,5 +7,5 @@ containerPort: 10001
 protocol: TCP
 port: 80
 publicIPs:
-  - "104.155.35.168"
+  - "104.155.78.199"
 createExternalLoadBalancer: true
