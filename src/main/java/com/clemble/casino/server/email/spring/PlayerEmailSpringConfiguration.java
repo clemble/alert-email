@@ -1,6 +1,6 @@
 package com.clemble.casino.server.email.spring;
 
-import com.clemble.casino.server.email.controller.PlayerEmailServiceController;
+import com.clemble.casino.server.email.controller.PlayerEmailController;
 import com.clemble.casino.server.email.listener.SystemEmailAddedEventListener;
 import com.clemble.casino.server.email.listener.SystemEmailSendRequestEventListener;
 import com.clemble.casino.server.email.repository.PlayerEmailRepository;
@@ -63,10 +63,10 @@ public class PlayerEmailSpringConfiguration implements SpringConfiguration {
     }
 
     @Bean
-    public PlayerEmailServiceController playerEmailServiceController(
+    public PlayerEmailController playerEmailServiceController(
         @Value("${clemble.registration.token.host}") String host,
         ServerPlayerEmailService playerEmailService){
-        return new PlayerEmailServiceController("http://" + host.substring(1), playerEmailService);
+        return new PlayerEmailController("http://" + host.substring(1), playerEmailService);
     }
 
     @Bean

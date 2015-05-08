@@ -14,12 +14,12 @@ import java.io.IOException;
  * Created by mavarazy on 12/8/14.
  */
 @RestController
-public class PlayerEmailServiceController implements PlayerEmailService {
+public class PlayerEmailController implements PlayerEmailService {
 
     final private String redirect;
     final private ServerPlayerEmailService playerEmailService;
 
-    public PlayerEmailServiceController(String redirect, ServerPlayerEmailService playerEmailService) {
+    public PlayerEmailController(String redirect, ServerPlayerEmailService playerEmailService) {
         this.redirect = redirect;
         this.playerEmailService = playerEmailService;
     }
