@@ -2,6 +2,7 @@ package com.clemble.casino.server.email.service;
 
 import com.clemble.casino.player.PlayerEmailWebMapping;
 import com.clemble.casino.player.service.PlayerEmailService;
+import com.clemble.casino.server.ServerService;
 import com.clemble.casino.server.email.PlayerEmail;
 import com.clemble.casino.server.email.repository.PlayerEmailRepository;
 import com.clemble.casino.server.event.email.SystemEmailSendDirectRequestEvent;
@@ -15,7 +16,7 @@ import org.springframework.security.crypto.encrypt.TextEncryptor;
 /**
  * Created by mavarazy on 12/6/14.
  */
-public class ServerPlayerEmailService implements PlayerEmailService {
+public class ServerPlayerEmailService implements PlayerEmailService, ServerService {
 
     final private Logger LOG = LoggerFactory.getLogger(ServerPlayerEmailService.class);
 

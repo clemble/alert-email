@@ -3,6 +3,7 @@ package com.clemble.casino.server.email.controller;
 import com.clemble.casino.WebMapping;
 import com.clemble.casino.player.PlayerEmailWebMapping;
 import com.clemble.casino.player.service.PlayerEmailService;
+import com.clemble.casino.server.ExternalController;
 import com.clemble.casino.server.email.service.ServerPlayerEmailService;
 import org.apache.http.HttpResponse;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.io.IOException;
  * Created by mavarazy on 12/8/14.
  */
 @RestController
-public class PlayerEmailController implements PlayerEmailService {
+public class PlayerEmailController implements PlayerEmailService, ExternalController {
 
     final private String redirect;
     final private ServerPlayerEmailService playerEmailService;
