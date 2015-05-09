@@ -1,5 +1,6 @@
 package com.clemble.casino.server.email.listener;
 
+import com.clemble.casino.server.email.PlayerEmail;
 import com.clemble.casino.server.email.repository.PlayerEmailRepository;
 import com.clemble.casino.server.email.service.ServerEmailSender;
 import com.clemble.casino.server.event.email.SystemEmailSendRequestEvent;
@@ -28,8 +29,11 @@ public class SystemEmailSendRequestEventListener implements SystemEventListener<
 
     @Override
     public void onEvent(SystemEmailSendRequestEvent event) {
+        PlayerEmail playerEmail = emailRepository.findOne(event.getPlayer());
+        if (playerEmail == null)
+            return;
         // Step 1. Fetching email
-        String email = emailRepository.findOne(event.getPlayer()).getEmail();
+        String email = playerEmail.getEmail();
         // Step 2. Generating text
         String text = templateService.produce(event.getTemplate(), event.getParams());
         // Step 3. Sending email
