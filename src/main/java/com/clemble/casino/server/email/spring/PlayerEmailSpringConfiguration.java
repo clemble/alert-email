@@ -8,7 +8,6 @@ import com.clemble.casino.server.email.service.MandrillEmailSender;
 import com.clemble.casino.server.email.service.ServerEmailSender;
 import com.clemble.casino.server.email.service.ServerPlayerEmailService;
 import com.clemble.casino.server.player.notification.SystemNotificationService;
-import com.clemble.casino.server.player.notification.SystemNotificationServiceListener;
 import com.clemble.casino.server.spring.common.CommonSpringConfiguration;
 import com.clemble.casino.server.spring.common.MongoSpringConfiguration;
 import com.clemble.casino.server.spring.common.SpringConfiguration;
@@ -44,21 +43,16 @@ public class PlayerEmailSpringConfiguration implements SpringConfiguration {
     }
 
     @Bean
-    public SystemEmailAddedEventListener systemEmailAddedEventListener(
-        ServerPlayerEmailService serverPlayerEmailService,
-        SystemNotificationServiceListener notificationServiceListener) {
+    public SystemEmailAddedEventListener systemEmailAddedEventListener(ServerPlayerEmailService serverPlayerEmailService) {
         SystemEmailAddedEventListener emailAddedEventListener = new SystemEmailAddedEventListener(serverPlayerEmailService);
-        notificationServiceListener.subscribe(emailAddedEventListener);
         return emailAddedEventListener;
     }
 
     @Bean
     public SystemEmailSendRequestEventListener systemEmailSendRequestEventListener(
         ServerEmailSender emailSender,
-        PlayerEmailRepository emailRepository,
-        SystemNotificationServiceListener notificationServiceListener) {
+        PlayerEmailRepository emailRepository) {
         SystemEmailSendRequestEventListener emailAddedEventListener = new SystemEmailSendRequestEventListener(new MustacheTemplateService(),emailSender, emailRepository);
-        notificationServiceListener.subscribe(emailAddedEventListener);
         return emailAddedEventListener;
     }
 
