@@ -11,6 +11,7 @@ import com.clemble.casino.server.player.notification.SystemNotificationService;
 import com.clemble.casino.server.spring.common.CommonSpringConfiguration;
 import com.clemble.casino.server.spring.common.MongoSpringConfiguration;
 import com.clemble.casino.server.spring.common.SpringConfiguration;
+import com.clemble.casino.server.template.MustacheTemplateService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.microtripit.mandrillapp.lutung.MandrillApi;
@@ -25,8 +26,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.repository.support.MongoRepositoryFactory;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
-
-import com.clemble.casino.server.template.MustacheTemplateService;
 
 import java.io.IOException;
 
