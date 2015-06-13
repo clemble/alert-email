@@ -41,9 +41,8 @@ public class PlayerEmail implements PlayerAware, EmailAware {
         PlayerEmail that = (PlayerEmail) o;
 
         if (!email.equals(that.email)) return false;
-        if (!player.equals(that.player)) return false;
+        return player.equals(that.player);
 
-        return true;
     }
 
     @Override
